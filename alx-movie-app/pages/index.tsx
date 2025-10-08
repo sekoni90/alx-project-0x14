@@ -6,11 +6,7 @@ const Home: React.FC = () => {
   return (
     <div className="bg-[#171D22] text-white">
       <section
-        className="h-screen bg-cover bg-center"
-        style={{
-          backgroundImage:
-            'url("https://themebeyond.com/html/movflx/img/bg/breadcrumb_bg.jpg")',
-        }}
+        className="h-screen bg-cover bg-center bg-[url(https://themebeyond.com/html/movflx/img/bg/breadcrumb_bg.jpg)]"
       >
         <div className="bg-black bg-opacity-50 h-full flex flex-col justify-center items-center text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-8">

@@ -1,29 +1,19 @@
-import React from 'react';
+import { MovieProps } from "@/interfaces"
+import Image from "next/image"
 
-type Movie = {
-  id?: string | number;
-  title: string;
-  year?: string | number;
-  poster?: string;
-  overview?: string;
-};
-
-const MovieCard: React.FC<{ movie: Movie; onClick?: () => void }> = ({ movie, onClick }) => {
+const MovieCard: React.FC<MovieProps> = ({ title, posterImage, releaseYear }) => {
   return (
-    <article onClick={onClick} className="max-w-xs rounded overflow-hidden shadow hover:shadow-md cursor-pointer">
-      {movie.poster ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={movie.poster} alt={movie.title} className="w-full h-64 object-cover" />
-      ) : (
-        <div className="w-full h-64 bg-gray-100 flex items-center justify-center">No Image</div>
-      )}
-      <div className="p-4">
-        <h3 className="font-semibold text-lg">{movie.title}</h3>
-        {movie.year && <p className="text-sm text-gray-500">{movie.year}</p>}
-        {movie.overview && <p className="mt-2 text-sm text-gray-700 line-clamp-3">{movie.overview}</p>}
-      </div>
-    </article>
-  );
-};
+    <div className="h-[563px]">
+      <div>
+        <Image className="h-[430px] w-full rounded-md hover:cursor-pointer" src={posterImage} width={100} height={100} alt={title} />
 
-export default MovieCard;
+      </div>
+      <div className="flex justify-between py-4">
+        <p className="text-xl font-bold">{title}</p>
+        <p className="text-xl text-[#E2D609]">{releaseYear}</p>
+      </div>
+    </div>
+  )
+}
+
+export default MovieCard
